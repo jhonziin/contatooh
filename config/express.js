@@ -4,11 +4,12 @@ module.exports = function(){
     var app = express();
 
     app.set('port', 3000);
-    
+    app.set('view engine', 'ejs');
+    app.set('views', './app/views');
     app.use(express.static('./public'));
 
-    app.get('/funcionou', function(req, res){
-        res.send('funcionou');
+    app.get('/index', function(req, res){
+        res.render('index',{nome: "Express"});
     });
 
     return app;
